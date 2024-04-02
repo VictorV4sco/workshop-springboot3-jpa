@@ -16,7 +16,7 @@ import com.educandoweb.course.services.OrderService;
 @RequestMapping(value = "/orders")
 public class OrderResource {
 
-	@Autowired
+	@Autowired 
 	private OrderService service;
 
 	@GetMapping
@@ -24,11 +24,10 @@ public class OrderResource {
 		List<Order> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Order> findById(@PathVariable Long id) {
 		Order obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
 }
